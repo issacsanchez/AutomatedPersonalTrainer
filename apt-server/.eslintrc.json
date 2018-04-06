@@ -1,0 +1,9 @@
+{
+    "extends": "google",
+    "rules": {
+        "no-var": 0,
+        "max-len": 0,
+        "new-cap": 0
+    },
+    "parserOptions": { "ecmaVersion": 6 }
+}

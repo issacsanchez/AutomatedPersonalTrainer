@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    .myloginheader p {
+      font-size: 32px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="mylogin">
+    <div class="row mt-5 justify-content-center myloginheader">
+      <div class="col-6 text-center">
+        <img src="../..//assets/img/planless.svg" width="80" height="80" alt="" id="logo">
+        <p class="lead">Register to  APT</p>
+      </div>
+    </div>
+    <div class="row justify-content-center myloginform">
+      <div class="col-6 ">
+        <div class="card mt-3">
+          <div class="card-body">
+            <form (ngSubmit)="register()" [formGroup]="register_form" novalidate>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" formControlName="name" required name="name" [ngClass]="{'is-invalid': name.invalid && name.dirty,
+                            'is-valid':name.valid && name.dirty}">
+                <div class="invalid-feedback" *ngIf="name.invalid && name.dirty">
+                  <p *ngIf="name.errors.required">Email is required</p>
+                  <p *ngIf="name.errors.minlength">Name must be 3 characters long</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" formControlName="email" name="email" [ngClass]="{'is-invalid': email.invalid && email.dirty,
+                            'is-valid':email.valid && email.dirty}">
+                <div class="invalid-feedback" *ngIf="email.invalid && email.dirty">
+                  <p *ngIf="email.errors.required">Email is required</p>
+                  <p *ngIf="email.errors.pattern">The email address must be a valid email</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" formControlName="password" name="password" [ngClass]="{'is-invalid': password.invalid && password.dirty,
+                            'is-valid':password.valid && password.dirty}">
+                <div class="invalid-feedback" *ngIf="password.invalid && password.dirty">
+                  <p *ngIf="password.errors.required">Password is required</p>
+                  <p *ngIf="password.errors.minlength">Password must be 4 characters long</p>
+                </div>
+              </div>
+              <button [disabled]="!register_form.valid" type="submit" class="btn btn-primary btn-block mt-3">LOGIN</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3 justify-content-center myloginfooter">
+      <div class="col-6 text-center">
+        <div class="card">
+          <a href="#">I FORGOT MY PASSWORD</a>
+          <a href="#">NEW HERE ? REGISTER</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
