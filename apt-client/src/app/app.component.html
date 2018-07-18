@@ -27,8 +27,8 @@
         <img src="../../img/planless.svg" width="40" height="40" alt="">
       </a>
       <div>
-        <button *ngIf="!auth.isLoggedIn()" type="button" class="btn btn-outline-dark mr-1">LOGIN</button>
-        <button *ngIf="!auth.isLoggedIn()" type="button" class="btn btn-outline-dark mr-3">REGISTER</button>
+        <button *ngIf="!auth.isLoggedIn()" routerLink="/login" type="button" class="btn btn-outline-dark mr-1">LOGIN</button>
+        <button *ngIf="!auth.isLoggedIn()" routerLink="/register" type="button" class="btn btn-outline-dark mr-3">REGISTER</button>
         <button *ngIf="auth.isLoggedIn()" type="button" class="btn btn-outline-dark mr-3" (click)="auth.logout()">LOGOUT</button>
       </div>
     </nav>

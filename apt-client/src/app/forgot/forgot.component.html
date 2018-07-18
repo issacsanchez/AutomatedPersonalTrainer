@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    .myloginheader p {
+      font-size: 32px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="myforgot">
+    <div class="row justify-content-center myforgotform">
+      <div class="col-6 ">
+        <div class="card mt-3">
+          <div class="card-body">
+            <div *ngIf="forgotResult">
+              <div class="alert alert-warning" role="alert">
+                  <strong>Heads up!</strong> {{forgotResult}}
+                </div>
+            </div>
+            <h6>Forgot Your Password?</h6>
+            <p>Resetting your password is easy. Just enter your email below and click on the link sent to your email.</p>
+            <form (ngSubmit)="forgot()" [formGroup]="forgot_form" novalidate>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" formControlName="email" name="email"  [ngClass]="{'is-invalid': email.invalid && email.dirty,
+                'is-valid':email.valid && email.dirty}">
+                <div class="invalid-feedback" *ngIf="email.invalid && email.dirty">
+                  <p *ngIf="email.errors.required">Email is required</p>
+                  <p *ngIf="email.errors.pattern">The email address must be a valid email</p>
+                </div>
+              </div>
+              <button type="submit" [disabled]="!forgot_form.valid" class="btn btn-primary btn-block mt-3">Send Email</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous"></script>
+</body>
+</html>

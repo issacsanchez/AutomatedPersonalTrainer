@@ -16,12 +16,14 @@ export interface UserDetails {
 interface TokenResponse {
   token: string;
 }
-
 export interface TokenPayload {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
   name?: string;
+  token?: string;
+
 }
+
 @Injectable()
 export class AuthenticationService {
   private token: string;
@@ -61,7 +63,7 @@ export class AuthenticationService {
       return false;
     }
   }
-  private request(method: 'post'|'get', type: 'login'|'register'|'profile', user?: TokenPayload): Observable<any> {
+  private request(method: 'post'|'get', type: 'login'|'register'|'profile'|'forgot'|'reset', user?: TokenPayload): Observable<any> {
     let base;
 
     if (method === 'post') {
@@ -90,5 +92,11 @@ export class AuthenticationService {
 
   public profile(): Observable<any> {
     return this.request('get', 'profile');
+  }
+  public forgot(user: TokenPayload): Observable<any> {
+    return this.request('post', 'forgot', user);
+  }
+  public reset(user: TokenPayload): Observable<any> {
+    return this.request('post', 'reset', user);
   }
 }

@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\apt-client",
+    "\\apt-client\\src",
+    "\\apt-client\\src\\app",
+    "\\apt-client\\src\\app\\forgot",
+    "\\apt-client\\src\\app\\home",
+    "\\apt-client\\src\\app\\login",
+    "\\apt-client\\src\\app\\profile",
+    "\\apt-client\\src\\app\\services",
+    "\\apt-server",
+    "\\apt-server\\routes"
+  ],
+  "SelectedNode": "\\apt-server\\app.js",
+  "PreviewInSolutionExplorer": false
+}

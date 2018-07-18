@@ -1,11 +1,9 @@
 var mongoose = require('mongoose');
-var secrets = require('../config/secrets.json');
-var dbURL = secrets.dbURL;
-mongoose.connect(dbURL);
+mongoose.connect('mongodb://localhost/ForgotDB');
 
 // CONNECTION EVENTS
 mongoose.connection.on('connected', function() {
-  console.log('Mongoose connected to ' + dbURL);
+  console.log('Mongoose connected to ' + 'ForgotDB');
 });
 mongoose.connection.on('error', function(err) {
   console.log('Mongoose connection error: ' + err);
@@ -25,4 +23,3 @@ process.on('SIGINT', function() {
   });
 });
 require('./users');
-

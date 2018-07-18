@@ -13,6 +13,10 @@ router.get('/profile', auth, ctrlProfile.profileRead);
 
 router.post('/register', ctrlAuth.register);
 
+router.post('/forgot', ctrlAuth.forgot);
+
+router.post('/reset', ctrlAuth.reset);
+
 router.post('/login', ctrlAuth.login);
 
 module.exports = router;

@@ -4,6 +4,7 @@ var cors = require('cors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var nodemailer = require('nodemailer');
 var passport = require('passport');
 var expressValidator = require(`express-validator`);
 var logger = require('morgan');

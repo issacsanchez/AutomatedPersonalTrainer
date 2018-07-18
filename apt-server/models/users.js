@@ -15,6 +15,8 @@ var userSchema = new mongoose.Schema({
   },
   hash: String,
   salt: String,
+  resetPasswordToken: String,
+  resetPasswordExpires: Date
 });
 userSchema.methods.setPassword = function(password) {
   this.salt = crypto.randomBytes(16).toString('hex');

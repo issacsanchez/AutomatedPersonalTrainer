@@ -23,7 +23,7 @@ function(username, password, done) {
         message: 'Password is wrong',
       });
     }
-    // If credentials are correct, return the user object
+    // If credentials are correct, or user exist
     return done(null, user);
   });
 }
